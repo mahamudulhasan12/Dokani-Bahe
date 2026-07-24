@@ -1,3 +1,4 @@
+import 'package:dokani_bahe/registation/login_screen.dart';
 import 'package:dokani_bahe/screen/home_screen.dart';
 import 'package:dokani_bahe/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }
