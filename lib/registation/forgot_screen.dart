@@ -1,4 +1,6 @@
+import 'package:dokani_bahe/widget/my_button.dart';
 import 'package:dokani_bahe/widget/my_container.dart';
+import 'package:dokani_bahe/widget/my_text.dart';
 import 'package:flutter/material.dart';
 
 class ForgotScreen extends StatefulWidget {
@@ -34,6 +36,23 @@ class _ForgotScreenState extends State<ForgotScreen> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 10,),
+            Column(
+              children: [
+                MyText(text: "Forgot Passwrld?",fontSize: 20,fontWeight: FontWeight.bold,),
+                SizedBox(height: 10,),
+                MyText(text: "Don't worry! It happens.plase enter",fontSize: 14,fontWeight: FontWeight.bold,colors: Colors.grey[500],),
+                MyText(text: "your registered phone number or email address",fontSize: 14,fontWeight: FontWeight.bold,colors: Colors.grey[500],),
+              ],
+            ),
+            SizedBox(height: 20,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MyButton(height: 50, width: 150, onTab: (){}, child: MyText(text: "Phone",fontSize: 18,fontWeight: FontWeight.bold,colors: Colors.orange,),color:Colors.white,boxBorder: Border.all(width: 2,color: Colors.orange),),
+                MyButton(height: 50, width: 150, onTab: (){}, child: MyText(text: "Email",fontSize: 18,fontWeight: FontWeight.bold,colors: Colors.orange,),color:Colors.white,boxBorder: Border.all(width: 2,color: Colors.orange),),
+              ],
             )
           ]
         ),
