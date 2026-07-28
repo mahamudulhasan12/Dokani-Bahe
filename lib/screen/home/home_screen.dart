@@ -1,5 +1,7 @@
-import 'package:dokani_bahe/widget/my_appbar.dart';
+
 import 'package:flutter/material.dart';
+
+import '../../custom widget/my_appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

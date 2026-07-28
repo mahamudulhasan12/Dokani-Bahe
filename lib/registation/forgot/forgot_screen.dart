@@ -1,7 +1,15 @@
-import 'package:dokani_bahe/widget/my_button.dart';
-import 'package:dokani_bahe/widget/my_container.dart';
-import 'package:dokani_bahe/widget/my_text.dart';
+
+import 'package:dokani_bahe/registation/forgot/widget/number_textfeld.dart';
+import 'package:dokani_bahe/registation/forgot/widget/two_button.dart';
+import 'package:dokani_bahe/registation/login_screen.dart';
+import 'package:dokani_bahe/registation/verify_otp_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../custom widget/my-textfeild.dart';
+import '../../custom widget/my_button.dart';
+import '../../custom widget/my_container.dart';
+import '../../custom widget/my_text.dart';
+import '../../custom widget/text_back.dart';
 
 class ForgotScreen extends StatefulWidget {
   const ForgotScreen({super.key});
@@ -11,6 +19,7 @@ class ForgotScreen extends StatefulWidget {
 }
 
 class _ForgotScreenState extends State<ForgotScreen> {
+  TextEditingController phone = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,17 +55,39 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 MyText(text: "your registered phone number or email address",fontSize: 14,fontWeight: FontWeight.bold,colors: Colors.grey[500],),
               ],
             ),
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MyButton(height: 50, width: 150, onTab: (){}, child: MyText(text: "Phone",fontSize: 18,fontWeight: FontWeight.bold,colors: Colors.orange,),color:Colors.white,boxBorder: Border.all(width: 2,color: Colors.orange),),
-                MyButton(height: 50, width: 150, onTab: (){}, child: MyText(text: "Email",fontSize: 18,fontWeight: FontWeight.bold,colors: Colors.orange,),color:Colors.white,boxBorder: Border.all(width: 2,color: Colors.orange),),
-              ],
-            )
+            SizedBox(height: 25,),
+            TwoButton(),
+            SizedBox(height: 10,),
+            TextFeild(phone: phone),
+            SizedBox(height: 25,),
+            MyButton(
+              height: 55,
+              width: MediaQuery.sizeOf(context).width,
+              colors: Colors.orange,
+              child: MyText(
+                text: "Send OTP",
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                colors: Colors.white,
+              ),
+              onTab: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>VerifyOtpScreen()));
+              },
+            ),
+            SizedBox(height: 10,),
+            Text_BackButton(text: "Remember your password", buttonNmae: "Login", onTab: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+            }
+            ),
           ]
         ),
+
       ),
     );
   }
 }
+
+
+
+
+

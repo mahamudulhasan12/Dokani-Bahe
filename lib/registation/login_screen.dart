@@ -1,13 +1,14 @@
 import 'dart:developer';
 
-import 'package:dokani_bahe/registation/forgot_screen.dart';
+import 'package:dokani_bahe/registation/forgot/forgot_screen.dart';
 import 'package:dokani_bahe/registation/register_screen.dart';
-import 'package:dokani_bahe/widget/my-textfeild.dart';
-import 'package:dokani_bahe/widget/my_button.dart';
-import 'package:dokani_bahe/widget/my_container.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/my_text.dart';
+import '../custom widget/my-textfeild.dart';
+import '../custom widget/my_button.dart';
+import '../custom widget/my_container.dart';
+import '../custom widget/my_text.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -154,6 +155,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
                 colors: Colors.white,
               ),
+              onTab: (){
+
+              },
             ),
             SizedBox(height: 20),
             Row(
@@ -223,7 +227,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

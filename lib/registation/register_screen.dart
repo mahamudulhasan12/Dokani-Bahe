@@ -1,10 +1,9 @@
 import 'package:dokani_bahe/registation/login_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../widget/my-textfeild.dart';
-import '../widget/my_button.dart';
-import '../widget/my_container.dart';
-import '../widget/my_text.dart';
+import '../custom widget/my-textfeild.dart';
+import '../custom widget/my_button.dart';
+import '../custom widget/my_text.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

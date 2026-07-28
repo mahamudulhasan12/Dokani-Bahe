@@ -2,13 +2,12 @@
 import 'package:flutter/material.dart';
 class MyButton extends StatelessWidget {
   const MyButton({
-    super.key, required this.height, required this.width, this.color,this.boxBorder, this.onTab, this.child,
+    super.key, required this.height, required this.width, this.colors,this.boxBorder, this.onTab, this.child,
   });
   final double height;
   final double width;
   final VoidCallback ? onTab;
-  final Color ? color;
-
+  final Color ?colors;
   final BoxBorder ? boxBorder;
   final Widget ? child;
 
@@ -22,7 +21,7 @@ class MyButton extends StatelessWidget {
         width:width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: color ?? Colors.orange,
+          color: colors ,
           border:boxBorder,
         ),
         alignment: Alignment.center,

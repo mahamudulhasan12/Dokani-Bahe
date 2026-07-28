@@ -1,6 +1,8 @@
-import 'package:dokani_bahe/screen/home_screen.dart';
-import 'package:dokani_bahe/widget/my_text.dart';
+import 'package:dokani_bahe/screen/home/home_screen.dart';
+
 import 'package:flutter/material.dart';
+
+import '../custom widget/my_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
