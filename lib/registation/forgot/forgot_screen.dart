@@ -2,6 +2,7 @@
 import 'package:dokani_bahe/registation/forgot/widget/number_textfeld.dart';
 import 'package:dokani_bahe/registation/forgot/widget/two_button.dart';
 import 'package:dokani_bahe/registation/login_screen.dart';
+import 'package:dokani_bahe/custom%20widget/image_avater.dart';
 import 'package:dokani_bahe/registation/verify_otp_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,32 +25,17 @@ class _ForgotScreenState extends State<ForgotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back)),
       ),
       body: Padding(
         padding: EdgeInsets.only(left: 10,right: 10,top: 40),
-        child: Column(
+        child: ListView(
           children: [
-            Center(
-              child: MyContainer(height: 90, width: 90,colors: Colors.orange.shade50,boxShape: BoxShape.circle,
-                boxBorder: BoxBorder.all(width: 0.5,color: Colors.grey),
-                alignment: Alignment.center,
-                child: CircleAvatar(
-                  backgroundColor: Colors.orange.shade50,
-                  radius: 30,
-                  child: Image.network(
-                    height: 70,
-                    width: 70,
-                    color: Colors.orange,
-                    "https://cdn-icons-png.flaticon.com/128/3064/3064481.png"
-                  ),
-                ),
-              ),
-            ),
+            ImageAvater(imageLink: "https://cdn-icons-png.flaticon.com/128/6665/6665303.png"),
             SizedBox(height: 10,),
             Column(
               children: [
-                MyText(text: "Forgot Passwrld?",fontSize: 20,fontWeight: FontWeight.bold,),
+                MyText(text: "Forgot Password?",fontSize: 20,fontWeight: FontWeight.bold,),
                 SizedBox(height: 10,),
                 MyText(text: "Don't worry! It happens.plase enter",fontSize: 14,fontWeight: FontWeight.bold,colors: Colors.grey[500],),
                 MyText(text: "your registered phone number or email address",fontSize: 14,fontWeight: FontWeight.bold,colors: Colors.grey[500],),

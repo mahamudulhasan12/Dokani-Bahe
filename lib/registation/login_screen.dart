@@ -23,9 +23,9 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
-      ),
+      // appBar: AppBar(
+      //   leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+      // ),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.all(10),
@@ -147,6 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(height: 20),
             MyButton(
+              colors: Colors.orange,
               height: 50,
               width: MediaQuery.sizeOf(context).width,
               child: MyText(
@@ -155,6 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
                 colors: Colors.white,
               ),
+
               onTab: (){
 
               },

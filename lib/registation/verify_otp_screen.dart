@@ -81,7 +81,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
             width: MediaQuery.sizeOf(context).width,
             colors: Colors.orange,
             child: MyText(
-              text: "Verify OPT",
+              text: "Verify OTP",
               fontSize: 18,
               fontWeight: FontWeight.bold,
               colors: Colors.white,

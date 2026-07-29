@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(onPressed: () {Navigator.pop(context);}, icon: Icon(Icons.arrow_back)),
       ),
       body: SafeArea(
         child: ListView(
@@ -154,6 +154,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             ),
             SizedBox(height: 20),
             MyButton(
+              colors: Colors.orange,
               height: 50,
               width: MediaQuery.sizeOf(context).width,
               child: MyText(
