@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future toFun(BuildContext context)async{
-    await Future.delayed(Duration(seconds: 2)).then((_){
+    await Future.delayed(Duration(seconds: 3)).then((_){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
     });
   }

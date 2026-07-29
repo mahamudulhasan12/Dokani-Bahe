@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTextfeild extends StatelessWidget {
-  const MyTextfeild({super.key,required this.controller , this.outlinBorder , this.inputType, this.maxLine,this.hintText,this.hintStyle,this.label,this.colors,this.prefixIcon,this.suffiIcon, this.contentPadding, this.isDense});
+  const MyTextfeild({super.key,required this.controller , this.outlinBorder , this.inputType, this.maxLine,this.hintText,this.hintStyle,this.label,this.colors,this.prefixIcon,this.suffiIcon, this.contentPadding, this.isDense, this.enabledBorder, this.focusedBorder});
   final InputBorder ?  outlinBorder;
   final TextInputType ? inputType;
   final TextEditingController controller ;
@@ -14,6 +14,8 @@ class MyTextfeild extends StatelessWidget {
   final Widget ? prefixIcon;
   final EdgeInsetsGeometry ? contentPadding;
   final bool ? isDense;
+  final InputBorder ? enabledBorder;
+  final InputBorder ? focusedBorder;
     @override
   Widget build(BuildContext context) {
     return TextField(
@@ -31,7 +33,10 @@ class MyTextfeild extends StatelessWidget {
         fillColor:colors ,
         suffixIcon: suffiIcon,
         prefixIcon: prefixIcon,
+        enabledBorder: enabledBorder,
+        focusedBorder: focusedBorder
       ),
+
     ) ;
   }
 }
