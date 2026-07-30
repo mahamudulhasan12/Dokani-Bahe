@@ -84,6 +84,15 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }).toList(),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MyText(text: "Catergories",fontSize: 15,fontWeight: FontWeight.bold,),
+              TextButton(onPressed: (){
+
+              }, child: MyText(text: "View All",fontSize: 13,fontWeight: FontWeight.bold,colors: Colors.orange,),)
+            ],
+          )
         ],
       ),
     );
