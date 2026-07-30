@@ -1,6 +1,7 @@
 import 'package:dokani_bahe/custom%20widget/my-textfeild.dart';
 import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
+import 'package:dokani_bahe/screen/home/widget/categories_text.dart';
 import 'package:dokani_bahe/screen/home/widget/title_text.dart';
 import 'package:flutter/material.dart';
 
@@ -84,17 +85,11 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }).toList(),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MyText(text: "Catergories",fontSize: 15,fontWeight: FontWeight.bold,),
-              TextButton(onPressed: (){
-
-              }, child: MyText(text: "View All",fontSize: 13,fontWeight: FontWeight.bold,colors: Colors.orange,),)
-            ],
-          )
+          CatergoriesText()
         ],
       ),
     );
   }
 }
+
+
