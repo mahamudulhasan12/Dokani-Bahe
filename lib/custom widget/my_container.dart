@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyContainer extends StatelessWidget {
-  const MyContainer({super.key, required this.height,required this.width,this.borderRadius,this.boxShape,this.boxBorder,this.colors,  this.child, this.alignment, this.pading, this.margin});
-  final double  height;
+  const MyContainer({super.key, this.height,required this.width,this.borderRadius,this.boxShape,this.boxBorder,this.colors,  this.child, this.alignment, this.pading, this.margin});
+  final double? height;
   final double width;
   final BorderRadiusGeometry ? borderRadius;
   final BoxShape ? boxShape;

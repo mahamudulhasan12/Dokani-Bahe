@@ -1,7 +1,10 @@
 import 'package:dokani_bahe/custom%20widget/my-textfeild.dart';
+import 'package:dokani_bahe/custom%20widget/my_button.dart';
 import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_text.dart';
+import 'package:dokani_bahe/screen/home/widget/search_bar_header.dart';
+import 'package:dokani_bahe/screen/home/widget/slider_header.dart';
 import 'package:dokani_bahe/screen/home/widget/title_text.dart';
 import 'package:flutter/material.dart';
 
@@ -32,64 +35,21 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
-          MyTextfeild(
-            controller: search,
-            suffiIcon: Icon(Icons.search_outlined, size: 25),
-            outlinBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(width: 1, color: Colors.grey),
-            ),
-            hintText: "search for product...",
-            isDense: true,
-            inputType: TextInputType.text,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(width: 1, color: Colors.grey),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-              borderSide: BorderSide(width: 1, color: Colors.grey),
-            ),
-          ),
+          SearchBarHeader(search: search),
           SizedBox(height: 15),
-          CarouselSlider(
-            options: CarouselOptions(
-              // height: 200,
-              initialPage: 0,
-              enableInfiniteScroll: true,
-              reverse: false,
-              autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
-              viewportFraction: 0.99,
-              enlargeFactor: 0.3,
-              // aspectRatio: 2.0
-              // aspectRatio: 16/9
+          SliderHeader(),
+          CatergoriesText(hText: "Categories", subText: "View All", onPressed: (){}),
+          CircleAvatar(
+            radius: 40,
+            backgroundImage: NetworkImage(
+              "https://similarpng.com/_next/image?url=https%3A%2F%2Fimage.similarpng.com%2Ffile%2Fsimilarpng%2Fvery-thumbnail%2F2021%2F07%2FBlack-wireless-headphones-isolated-on-transparent-background-PNG.png&w=3840&q=75",
             ),
-            items: [1, 2, 3].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Stack(
-                    children: [
-                      MyContainer(
-                        margin: EdgeInsets.symmetric(horizontal: 2),
-                        height: 200,
-                        width: MediaQuery.sizeOf(context).width,
-                        borderRadius: BorderRadius.circular(10),
-                        colors: Colors.grey,
-                        alignment: Alignment.center,
-                        child: MyText(text: "${i}"),
-                      ),
-                    ],
-                  );
-                },
-              );
-            }).toList(),
           ),
-          CatergoriesText()
         ],
       ),
     );
   }
 }
+
 
 
