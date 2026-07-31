@@ -1,8 +1,12 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:dokani_bahe/Local%20Model/best_product.dart';
 import 'package:dokani_bahe/Local%20Model/caterogris_data.dart';
 import 'package:dokani_bahe/Local%20Model/fetured_data.dart';
 import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
+import 'package:dokani_bahe/registation/login_screen.dart';
+import 'package:dokani_bahe/screen/all%20product/all_product.dart';
+import 'package:dokani_bahe/screen/details/details_screen.dart';
 import 'package:dokani_bahe/screen/home/widget/arrivals_product.dart';
 import 'package:dokani_bahe/screen/home/widget/best_seller_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_product.dart';
@@ -27,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List data = CaterogrisData.categories;
   List FData = FeturedProducts.categories;
   List BSP = BestProduct.BestPro;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,34 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index){
 
-        },
-        iconSize: 25,
-        selectedItemColor: Colors.orange,
-        // fixedColor: Colors.blue,
-          unselectedItemColor:Colors.black,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
-            label: "Categories",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bookmark_border_outlined),
-            label: "Order",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Account",
-          )
-        ],
-      ),
     );
   }
 }

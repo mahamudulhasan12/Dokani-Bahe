@@ -5,7 +5,7 @@ class BestProduct {
 
     },
     {
-      "image": "https://assets.gadgetandgear.com/upload/media/galaxy-buds3-pro-silver.jpeg",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP49Mu62ElEREJpxCOBERAW_DGo7VoqtOO0w&s",
 
     },
     {
