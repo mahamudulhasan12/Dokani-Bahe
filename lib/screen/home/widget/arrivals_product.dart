@@ -40,7 +40,7 @@ class ArrivalsProduct extends StatelessWidget {
                 ),
               ),
             ),
-
+            Divider(height: 0.1,),
             // Product Information
             Padding(
               padding: EdgeInsets.only(

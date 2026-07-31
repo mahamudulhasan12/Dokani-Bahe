@@ -1,8 +1,10 @@
+import 'package:dokani_bahe/Local%20Model/best_product.dart';
 import 'package:dokani_bahe/Local%20Model/caterogris_data.dart';
 import 'package:dokani_bahe/Local%20Model/fetured_data.dart';
 import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
 import 'package:dokani_bahe/screen/home/widget/arrivals_product.dart';
+import 'package:dokani_bahe/screen/home/widget/best_seller_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_text.dart';
 import 'package:dokani_bahe/screen/home/widget/featured_product.dart';
@@ -24,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController search = TextEditingController();
   List data = CaterogrisData.categories;
   List FData = FeturedProducts.categories;
+  List BSP = BestProduct.BestPro;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,11 +94,64 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
+          ),
+          CatergoriesText(hText: "Best Seller Product", subText: "View All", onPressed: (){}),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: BSP.length,
+              itemBuilder: (context , index){
+                return BestSellerProduct(image: '${BSP[index]['image']}',);
+              },
+            ),
+          ),
+          CatergoriesText(hText: "Top Product", subText: "View All", onPressed: (){}),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: BSP.length,
+              itemBuilder: (context , index){
+                return BestSellerProduct(image: '${BSP[index]['image']}',);
+              },
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index){
+
+        },
+        iconSize: 25,
+        selectedItemColor: Colors.orange,
+        // fixedColor: Colors.blue,
+          unselectedItemColor:Colors.black,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.grid_view),
+            label: "Categories",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_border_outlined),
+            label: "Order",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Account",
           )
         ],
       ),
     );
   }
 }
+
 
 
