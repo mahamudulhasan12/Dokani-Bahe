@@ -13,13 +13,14 @@ class BottonNavigationBarScreen extends StatefulWidget {
 }
 
 class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
-  var _Page =0;
+
   final pages =[
     HomeScreen(),
     AllProductScreen(),
     DetailsScreen(),
     LoginScreen(),
   ];
+  var _Page =0;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -33,7 +34,7 @@ class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
           animationDuration: Duration(microseconds: 600),
           onTap: (index){
             setState(() {
-              index = _Page;
+              _Page = index;
             });
           },
           items: [
