@@ -16,6 +16,7 @@ class AllProductScreen extends StatefulWidget {
 
 class _AllProductScreenState extends State<AllProductScreen> {
   List Pdata = FeturedProducts.categories;
+  bool isLove  = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
             physics: ScrollPhysics(),
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemCount: 10,
+            itemCount: Pdata.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 6,
@@ -37,7 +38,7 @@ class _AllProductScreenState extends State<AllProductScreen> {
                 childAspectRatio: 0.90
               ),
               itemBuilder: (context , index){
-                return AllProduct(Fdata: Pdata, index: index,);
+                return AllProduct(Fdata: Pdata, index: index, isLove: isLove,);
               }
           )
         ],

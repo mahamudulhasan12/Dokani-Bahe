@@ -4,13 +4,19 @@ import 'package:flutter/material.dart';
 import '../../../custom widget/my_container.dart';
 import '../../../custom widget/my_text.dart';
 
-class AllProduct extends StatelessWidget {
+class AllProduct extends StatefulWidget {
   const AllProduct({
-    super.key, required this.Fdata, required this.index,
+    super.key, required this.Fdata, required this.index, required this.isLove,
   });
   final List Fdata;
   final int index;
+  final bool isLove;
 
+  @override
+  State<AllProduct> createState() => _AllProductState();
+}
+
+class _AllProductState extends State<AllProduct> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -21,17 +27,33 @@ class AllProduct extends StatelessWidget {
               child: Stack(
                 children: [
                   MyContainer(
+                    pading: EdgeInsets.all(10),
                     width: double.infinity,
                     borderRadius: BorderRadius.circular(10),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.network(
                           fit: BoxFit.fill,
-                          "${Fdata[index]['image']}"
+                          "${widget.Fdata[widget.index]['image']}"
                       ),
                     ),
                   ),
-
+                  Positioned(
+                    top: -10,
+                    right: -12,
+                    child: IconButton(
+                        onPressed: (){
+                         setState(() {
+                           widget.isLove !=widget.isLove;
+                         });
+                    },
+                        icon: Icon(
+                          widget.isLove ? Icons.favorite : Icons.favorite_border,
+                          color: widget.isLove ? Colors.red : Colors.grey,
+                          size: 22,
+                        ),
+                  )
+                  )
                 ],
               ),
             ),
@@ -44,15 +66,16 @@ class AllProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 2,
                   children: [
-                    MyText(text: "boAt Airdopes 141",fontSize: 13,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis,),
+                    MyText(text: "${widget.Fdata[widget.index]['category']}",fontSize: 13,fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis,),
                     Row(
                       spacing: 4,
                       children: [
-                        MyText(text: "৳12,99",fontSize: 14,fontWeight: FontWeight.bold,),
+                        MyText(text: "৳${widget.Fdata[widget.index]['discountPrice']}",fontSize: 14,fontWeight: FontWeight.bold,),
 
-                        MyText(text: "৳21,99",fontSize: 12,fontWeight: FontWeight.bold,decoration: TextDecoration.lineThrough,colors: Colors.grey,),
-                        MyText(text: "-40%",fontSize: 13,fontWeight: FontWeight.bold,colors: Colors.orange,),
+                        MyText(text: "৳${widget.Fdata[widget.index]['regularPrice']}",fontSize: 12,fontWeight: FontWeight.bold,decoration: TextDecoration.lineThrough,colors: Colors.grey,),
+                        MyText(text: "${widget.Fdata[widget.index]["perseint"]}",fontSize: 13,fontWeight: FontWeight.bold,colors: Colors.orange,),
                       ],
+
                     ),
                     Row(
                       spacing: 7,
