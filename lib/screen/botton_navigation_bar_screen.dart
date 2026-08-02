@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dokani_bahe/screen/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../registation/login_screen.dart';
@@ -17,6 +18,7 @@ class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
   final pages =[
     HomeScreen(),
     AllProductScreen(),
+    SearchScreen(),
     DetailsScreen(),
     LoginScreen(),
   ];
@@ -40,6 +42,7 @@ class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
           items: [
             Icon(Icons.home),
             Icon(Icons.grid_view),
+            Icon(Icons.search),
             Icon(Icons.bookmark_border_rounded),
             Icon(Icons.person),
           ],

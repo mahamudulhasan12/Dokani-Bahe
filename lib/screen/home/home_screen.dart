@@ -1,12 +1,8 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:dokani_bahe/Local%20Model/best_product.dart';
 import 'package:dokani_bahe/Local%20Model/caterogris_data.dart';
 import 'package:dokani_bahe/Local%20Model/fetured_data.dart';
-import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
-import 'package:dokani_bahe/registation/login_screen.dart';
 import 'package:dokani_bahe/screen/all%20product/all_product.dart';
-import 'package:dokani_bahe/screen/details/details_screen.dart';
 import 'package:dokani_bahe/screen/home/widget/arrivals_product.dart';
 import 'package:dokani_bahe/screen/home/widget/best_seller_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_product.dart';
@@ -47,13 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
-          SearchBarHeader(search: search),
+          InkWell(child: SearchBarHeader(search: search)),
           SizedBox(height: 15),
           SliderHeader(),
           CatergoriesText(
             hText: "Categories",
             subText: "View All",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));
+            },
           ),
           SizedBox(
             height: 90,
@@ -75,7 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
           CatergoriesText(
             hText: "Featured Products",
             subText: "View All",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));
+            },
           ),
           FeaturedProduct(FData: FData),
           SizedBox(height: 10),
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-          CatergoriesText(hText: "Best Seller Product", subText: "View All", onPressed: (){}),
+          CatergoriesText(hText: "Best Seller Product", subText: "View All", onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));}),
           SizedBox(
             height: 100,
             child: ListView.builder(
