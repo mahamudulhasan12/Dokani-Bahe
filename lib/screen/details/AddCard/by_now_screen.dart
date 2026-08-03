@@ -1,3 +1,4 @@
+import 'package:dokani_bahe/custom%20widget/my-textfeild.dart';
 import 'package:dokani_bahe/custom%20widget/my_appbar.dart';
 import 'package:dokani_bahe/custom%20widget/my_button.dart';
 import 'package:dokani_bahe/main.dart';
@@ -14,6 +15,9 @@ class ByNowScreen extends StatefulWidget {
 }
 
 class _ByNowScreenState extends State<ByNowScreen> {
+  TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController description = TextEditingController();
   int i = 1;
   bool isChack = false;
 
@@ -229,8 +233,22 @@ class _ByNowScreenState extends State<ByNowScreen> {
                               ),
                               alignment: Alignment.center,
                               child: MyText(text: "Checkout",fontWeight: FontWeight.bold,colors: Colors.white,fontSize: 18,),
-
-                            )
+                            ),
+                            SizedBox(height: 10,),
+                            MyTextfeild(controller: name,outlinBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(width: 1)
+                            ),inputType: TextInputType.text,prefixIcon: Icon(Icons.person),),
+                            SizedBox(height: 10,),
+                            MyTextfeild(controller: phone,outlinBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(width: 1)
+                            ),inputType: TextInputType.number,prefixIcon: Icon(Icons.phone),),
+                            SizedBox(height: 10,),
+                            MyTextfeild(controller: description,outlinBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(width: 1)
+                            ),inputType: TextInputType.text,prefixIcon: Icon(Icons.details),maxLine: 2,)
                           ],
                         );
                       },
