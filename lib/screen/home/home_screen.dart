@@ -11,6 +11,7 @@ import 'package:dokani_bahe/screen/home/widget/featured_product.dart';
 import 'package:dokani_bahe/screen/home/widget/search_bar_header.dart';
 import 'package:dokani_bahe/screen/home/widget/slider_header.dart';
 import 'package:dokani_bahe/screen/home/widget/title_text.dart';
+import 'package:dokani_bahe/screen/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom widget/my_appbar.dart';
@@ -43,7 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
-          InkWell(child: SearchBarHeader(search: search)),
+          InkWell(
+            // onTap: (){
+            //   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
+            // },
+              child: SearchBarHeader(search: search)),
           SizedBox(height: 15),
           SliderHeader(),
           CatergoriesText(

@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dokani_bahe/custom%20widget/my_button.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
+import 'package:dokani_bahe/screen/details/AddCard/by_now_screen.dart';
 import 'package:dokani_bahe/screen/details/widget/product_catogary.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +45,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             items:
                 [
                   "https://havit.com.bd/wp-content/uploads/2025/08/H612BT-PRO-1-768x768.jpg",
-                  "https://www.ryans.com/storage/products/small/havit-h2590bt-pro-bluetooth-black-11714304039.webp",
+                  "https://gadgetstudiobd.com/wp-content/uploads/2025/12/jbl-tune-730bt-wireless-headphones-1.webp",
                   "https://sc04.alicdn.com/kf/Hf2680aefa9b443fe962b4eca633c8220O.jpg",
                 ].map((i) {
                   return Builder(
@@ -268,7 +269,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 colors: Colors.deepOrange,
                 child: MyText(text: "Buy Now",fontWeight: FontWeight.bold,colors: Colors.white,fontSize: 16,),
                 onTab: (){
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ByNowScreen()));
                 },
               ),
             ],
