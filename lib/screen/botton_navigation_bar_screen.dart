@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dokani_bahe/screen/orders/orders_screen.dart';
 import 'package:dokani_bahe/screen/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
     HomeScreen(),
     AllProductScreen(),
     SearchScreen(),
-    DetailsScreen(),
+    OrdersScreen(),
     LoginScreen(),
   ];
   var _Page =0;

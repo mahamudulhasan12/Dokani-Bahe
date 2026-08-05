@@ -8,25 +8,40 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor,
     this.centerTitle = true,
     this.elevation = 0,
-    this.fontSize, this.colors,
+    this.fontSize,
+    this.colors,
+    this.bottom,
+    this.toolbarHight = 56,
   });
+
   final Widget title;
   final List<Widget>? actions;
   final Color? backgroundColor;
   final bool centerTitle;
   final double elevation;
-  final double ? fontSize;
-  final Color ? colors;
+  final double? fontSize;
+  final Color? colors;
+  final PreferredSizeWidget? bottom;
+  final double toolbarHight;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       title: title,
       centerTitle: centerTitle,
-      backgroundColor: colors,
+
+      backgroundColor: backgroundColor ?? Colors.white,
+
       elevation: elevation,
+
       actions: actions,
+
+      bottom: bottom,
+
+      toolbarHeight: toolbarHight,
+
       titleTextStyle: TextStyle(
-        color: Colors.white,
+        color: colors ?? Colors.black,
         fontWeight: FontWeight.bold,
         fontSize: fontSize ?? 14,
       ),
@@ -34,5 +49,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize {
+    return Size.fromHeight(toolbarHight + (bottom?.preferredSize.height ?? 0));
+  }
 }
