@@ -2,10 +2,10 @@
 import 'package:flutter/material.dart';
 class MyButton extends StatelessWidget {
   const MyButton({
-    super.key, required this.height, required this.width, this.colors,this.boxBorder, this.onTab, this.child, this.borderRadius,
+    super.key,  this.height,  this.width, this.colors,this.boxBorder, this.onTab, this.child, this.borderRadius,
   });
-  final double height;
-  final double width;
+  final double ?height;
+  final double ? width;
   final VoidCallback ? onTab;
   final Color ?colors;
   final BoxBorder ? boxBorder;

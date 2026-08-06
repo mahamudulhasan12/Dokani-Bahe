@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../custom widget/my_button.dart';
 import '../MyCard/widget/cash_text.dart';
+import '../Order Sucessfull/sucessfull_order_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -166,7 +167,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ],
             ),
             onTab: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckoutScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>SucessfullOrderScreen()));
             },
           ),
           SizedBox(height: 10,),
