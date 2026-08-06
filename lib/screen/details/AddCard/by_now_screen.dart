@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../custom widget/my_container.dart';
 import '../../../custom widget/my_text.dart';
+import 'cash_menoy.dart';
 
 class ByNowScreen extends StatefulWidget {
   const ByNowScreen({super.key});
@@ -219,37 +220,160 @@ class _ByNowScreenState extends State<ByNowScreen> {
                     showModalBottomSheet(
                       context: context,
                       builder: (context) {
-                        return ListView(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          children: [
-                            MyContainer(
-                              height: 50,
-                              width: MediaQuery.sizeOf(context).width,
-                              colors: Colors.orange,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(20),
-                                topLeft: Radius.circular(20),
-
-                              ),
-                              alignment: Alignment.center,
-                              child: MyText(text: "Checkout",fontWeight: FontWeight.bold,colors: Colors.white,fontSize: 18,),
+                        return Scaffold(
+                          appBar: MyAppbar(
+                            title: MyText(
+                              text: "Checkout",
+                              fontWeight: FontWeight.bold,
+                              colors: Colors.white,
+                              fontSize: 18,
                             ),
-                            SizedBox(height: 10,),
-                            MyTextfeild(controller: name,outlinBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(width: 1)
-                            ),inputType: TextInputType.text,prefixIcon: Icon(Icons.person),),
-                            SizedBox(height: 10,),
-                            MyTextfeild(controller: phone,outlinBorder: OutlineInputBorder(
+                            centerTitle: false,
+                            backgroundColor: Colors.orange,
+                          ),
+                          body: ListView(
+                            shrinkWrap: true,
+                            padding: EdgeInsets.all(10),
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              SizedBox(height: 10),
+                              MyTextfeild(
+                                controller: name,
+                                hintText: "Enter Your Name",
+                                outlinBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(width: 1),
+                                ),
+                                inputType: TextInputType.text,
+                                prefixIcon: Icon(Icons.person),
+                              ),
+                              SizedBox(height: 10),
+                              MyTextfeild(
+                                controller: phone,
+                                hintText: "Enter Your Phone or Email",
+                                outlinBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(width: 1),
+                                ),
+                                inputType: TextInputType.number,
+                                prefixIcon: Icon(Icons.phone),
+                              ),
+                              SizedBox(height: 10),
+                              MyTextfeild(
+                                controller: description,
+                                hintText: "Description",
+                                outlinBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(width: 1),
+                                ),
+                                inputType: TextInputType.text,
+                                prefixIcon: Icon(Icons.details),
+                                maxLine: 2,
+                              ),
+                              SizedBox(height: 10),
+                              CircleAvatar(
+                                radius: 20,
+                                child: Image.asset("assets/images/shop.png"),
+                              ),
+                              MyText(
+                                text: "Payment Method",
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+
+                              Row(
+                                spacing: 10,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    child: MyContainer(
+                                      pading: EdgeInsets.all(15),
+                                      height: 60,
+                                      width: 120,
+                                      // colors: Colors.orange.shade100,
+                                      boxBorder: Border.all(
+                                        width: 0.5,
+                                        color: Colors.orange,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                      alignment: Alignment.center,
+                                      child: Image.network(
+                                        "https://cdn-icons-png.flaticon.com/128/6491/6491623.png",
+                                      ),
+                                    ),
+                                    onTap: () {},
+                                  ),
+                                  InkWell(
+                                    child: MyContainer(
+                                      pading: EdgeInsets.all(15),
+                                      height: 60,
+                                      width: 120,
+                                      // colors: Colors.orange.shade100,
+                                      boxBorder: Border.all(
+                                        width: 0.5,
+                                        color: Colors.orange,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10),
+                                      alignment: Alignment.center,
+                                      child: Image.network(
+                                        "https://images.seeklogo.com/logo-png/27/1/bkash-logo-png_seeklogo-273684.png",
+                                      ),
+                                    ),
+                                    onTap: () {},
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              MyContainer(
+                                pading: EdgeInsets.all(15),
+                                height: 156,
+                                width: MediaQuery.sizeOf(context).width,
+                                colors: Colors.orange.shade100,
                                 borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(width: 1)
-                            ),inputType: TextInputType.number,prefixIcon: Icon(Icons.phone),),
-                            SizedBox(height: 10,),
-                            MyTextfeild(controller: description,outlinBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(width: 1)
-                            ),inputType: TextInputType.text,prefixIcon: Icon(Icons.details),maxLine: 2,)
-                          ],
+                                child: Column(
+                                  spacing: 2,
+                                  children: [
+                                    Cash_money(
+                                      title: 'Sub Total ',
+                                      price: '540.0',
+                                    ),
+                                    Cash_money(
+                                      title: 'Sub Total ',
+                                      price: '540.0',
+                                    ),
+                                    Cash_money(
+                                      title: 'Sub Total ',
+                                      price: '540.0',
+                                    ),
+                                    Divider(),
+                                    Cash_money(
+                                      title: 'Sub Total ',
+                                      price: '540.0',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          bottomNavigationBar: MyContainer(
+                            width: MediaQuery.sizeOf(context).width,
+                            height: 50,
+                            pading: EdgeInsets.only(left: 10, right: 10),
+                            colors: Colors.orange,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                MyButton(height: 30, width: 150,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxBorder: Border.all(width: 1,color: Colors.white),
+                                  child: MyText(text: "CONFIRM ORDER",colors: Colors.white,fontWeight: FontWeight.bold,),
+                                  onTab: (){
+
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
                         );
                       },
                     );

@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dokani_bahe/registation/my_account/my_account.dart';
 import 'package:dokani_bahe/screen/orders/orders_screen.dart';
 import 'package:dokani_bahe/screen/search/search_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class _BottonNavigationBarScreenState extends State<BottonNavigationBarScreen> {
     AllProductScreen(),
     SearchScreen(),
     OrdersScreen(),
-    LoginScreen(),
+    MyAccountScreen(),
   ];
   var _Page =0;
   @override
