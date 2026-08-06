@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../../../custom widget/my_container.dart';
 import '../../../custom widget/my_text.dart';
-import 'cash_menoy.dart';
+import 'widget/cash_menoy.dart';
 
 class ByNowScreen extends StatefulWidget {
   const ByNowScreen({super.key});

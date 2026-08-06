@@ -3,6 +3,7 @@ import 'package:dokani_bahe/Local%20Model/Order/order_data.dart';
 import 'package:dokani_bahe/custom%20widget/my_appbar.dart';
 import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
+import 'package:dokani_bahe/screen/orders/MyCard/my_order_screen.dart';
 import 'package:flutter/material.dart';
 
 class OrdersScreen extends StatefulWidget {
@@ -147,7 +148,9 @@ class _OrdersScreenState extends State<OrdersScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             MyText(text: "Payment Method",colors: Colors.grey,),
-                            TextButton(onPressed: (){}, child: MyText(text: "View Details",colors: Colors.orange,))
+                            TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyOrderScreen()));
+                            }, child: MyText(text: "View Details",colors: Colors.orange,))
                           ],
                         ),
                         Row(

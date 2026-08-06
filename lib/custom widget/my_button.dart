@@ -18,11 +18,11 @@ class MyButton extends StatelessWidget {
     return InkWell(
       onTap: onTab,
       child: Container(
-        height: height,
-        width:width,
+        height: height ?? 50,
+        width:width ?? double.infinity,
         decoration: BoxDecoration(
           borderRadius: borderRadius ?? BorderRadius.circular(10),
-          color: colors ,
+          color: colors ?? Colors.orangeAccent ,
           border:boxBorder,
         ),
         alignment: Alignment.center,

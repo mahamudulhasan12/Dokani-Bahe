@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../custom widget/my_text.dart';
+import '../../../../custom widget/my_text.dart';
 
 class Cash_money extends StatelessWidget {
   const Cash_money({
