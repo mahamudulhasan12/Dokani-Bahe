@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MyTextfeild extends StatelessWidget {
-  const MyTextfeild({super.key,required this.controller , this.outlinBorder , this.inputType, this.maxLine,this.hintText,this.hintStyle,this.label,this.colors,this.prefixIcon,this.suffiIcon, this.contentPadding, this.isDense, this.enabledBorder, this.focusedBorder});
+  const MyTextfeild({super.key,required this.controller , this.outlinBorder , this.inputType, this.maxLine,this.hintText,this.hintStyle,this.label,this.colors,this.prefixIcon,this.suffiIcon, this.contentPadding, this.isDense, this.enabledBorder, this.focusedBorder, this.onTab, this.readOnly});
   final InputBorder ?  outlinBorder;
   final TextInputType ? inputType;
   final TextEditingController controller ;
@@ -16,10 +16,13 @@ class MyTextfeild extends StatelessWidget {
   final bool ? isDense;
   final InputBorder ? enabledBorder;
   final InputBorder ? focusedBorder;
+  final VoidCallback ? onTab;
+  final bool ? readOnly;
     @override
   Widget build(BuildContext context) {
     return TextField(
-
+      onTap:onTab ,
+      readOnly:readOnly ?? false,
       keyboardType: inputType,
       controller:controller ,
       maxLines: maxLine ?? 1,
@@ -29,7 +32,10 @@ class MyTextfeild extends StatelessWidget {
         label: label,
         hintText:hintText ,
         hintStyle: hintStyle,
-        border: outlinBorder,
+        border: outlinBorder ??OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(width: 0.5),
+        ),
         fillColor:colors ,
         suffixIcon: suffiIcon,
         prefixIcon: prefixIcon,
