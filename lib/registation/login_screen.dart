@@ -20,12 +20,23 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController phone = TextEditingController();
   TextEditingController password = TextEditingController();
+
+  bool isHeddenValue = false;
+  void isVisiblePassword(){
+    setState(() {
+
+    });
+    if(isHeddenValue == true){
+      isHeddenValue = false;
+    }else{
+      isHeddenValue = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
-      // ),
+      appBar: AppBar(),
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.all(10),
@@ -117,13 +128,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: 10),
                 MyTextfeild(
+                  obscureText: isHeddenValue,
                   controller: password,
                   hintText: "Enter Your password ",
                   prefixIcon: Icon(Icons.lock),
                   outlinBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  suffiIcon: Icon(Icons.remove_red_eye),
+                  suffiIcon: IconButton(onPressed: (){
+                    setState(() {
+                      isVisiblePassword();
+                    });
+                  }, icon: Icon(Icons.visibility_off)),
                   inputType: TextInputType.text,
                 ),
               ],

@@ -1,12 +1,16 @@
 import 'package:dokani_bahe/Local%20Model/best_product.dart';
 import 'package:dokani_bahe/Local%20Model/caterogris_data.dart';
 import 'package:dokani_bahe/Local%20Model/fetured_data.dart';
+import 'package:dokani_bahe/custom%20widget/my_container.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
+import 'package:dokani_bahe/registation/login_screen.dart';
+import 'package:dokani_bahe/registation/my_account/my_account.dart';
 import 'package:dokani_bahe/screen/all%20product/all_product.dart';
 import 'package:dokani_bahe/screen/home/widget/arrivals_product.dart';
 import 'package:dokani_bahe/screen/home/widget/best_seller_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_product.dart';
 import 'package:dokani_bahe/screen/home/widget/categories_text.dart';
+import 'package:dokani_bahe/screen/home/widget/drawer_widget.dart';
 import 'package:dokani_bahe/screen/home/widget/featured_product.dart';
 import 'package:dokani_bahe/screen/home/widget/search_bar_header.dart';
 import 'package:dokani_bahe/screen/home/widget/slider_header.dart';
@@ -28,11 +32,10 @@ class _HomeScreenState extends State<HomeScreen> {
   List data = CaterogrisData.categories;
   List FData = FeturedProducts.categories;
   List BSP = BestProduct.BestPro;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: DrawerWidget(),
       appBar: MyAppbar(
         centerTitle: false,
         title: TitleText(),
@@ -48,14 +51,18 @@ class _HomeScreenState extends State<HomeScreen> {
             // onTap: (){
             //   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchScreen()));
             // },
-              child: SearchBarHeader(search: search)),
+            child: SearchBarHeader(search: search),
+          ),
           SizedBox(height: 15),
           SliderHeader(),
           CatergoriesText(
             hText: "Categories",
             subText: "View All",
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AllProductScreen()),
+              );
             },
           ),
           SizedBox(
@@ -79,7 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
             hText: "Featured Products",
             subText: "View All",
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AllProductScreen()),
+              );
             },
           ),
           FeaturedProduct(FData: FData),
@@ -92,49 +102,63 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 130,
             child: ListView.builder(
-
               physics: ScrollPhysics(),
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: FData.length,
-              itemBuilder: (context,index){
+              itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(5),
-                  child: ArrivalsProduct(image: "${FData[index]["image"]}", productName: "${FData[index]["category"]}", price: "৳${FData[index]["discountPrice"]}",),
+                  child: ArrivalsProduct(
+                    image: "${FData[index]["image"]}",
+                    productName: "${FData[index]["category"]}",
+                    price: "৳${FData[index]["discountPrice"]}",
+                  ),
                 );
               },
             ),
           ),
-          CatergoriesText(hText: "Best Seller Product", subText: "View All", onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>AllProductScreen()));}),
+          CatergoriesText(
+            hText: "Best Seller Product",
+            subText: "View All",
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AllProductScreen()),
+              );
+            },
+          ),
           SizedBox(
             height: 100,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: BSP.length,
-              itemBuilder: (context , index){
-                return BestSellerProduct(image: '${BSP[index]['image']}',);
+              itemBuilder: (context, index) {
+                return BestSellerProduct(image: '${BSP[index]['image']}');
               },
             ),
           ),
-          CatergoriesText(hText: "Top Product", subText: "View All", onPressed: (){}),
+          CatergoriesText(
+            hText: "Top Product",
+            subText: "View All",
+            onPressed: () {},
+          ),
           SizedBox(
             height: 100,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemCount: BSP.length,
-              itemBuilder: (context , index){
-                return BestSellerProduct(image: '${BSP[index]['image']}',);
+              itemBuilder: (context, index) {
+                return BestSellerProduct(image: '${BSP[index]['image']}');
               },
             ),
           ),
         ],
       ),
-
     );
   }
 }
-
 
 
