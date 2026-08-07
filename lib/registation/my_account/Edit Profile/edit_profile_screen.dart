@@ -1,5 +1,6 @@
 import 'package:dokani_bahe/custom%20widget/my-textfeild.dart';
 import 'package:dokani_bahe/custom%20widget/my_appbar.dart';
+import 'package:dokani_bahe/custom%20widget/my_button.dart';
 import 'package:dokani_bahe/custom%20widget/my_text.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   TextEditingController country = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  Future<void>  selectDate() async {
+  Future<void> selectDate() async {
     DateTime? pickDate = await showDatePicker(
       context: context,
       // initialDate: DateTime.now(),
@@ -134,10 +135,69 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 onTab: selectDate,
                 readOnly: true,
                 isDense: true,
-                hintText: "22 February 2008",suffiIcon: Icon(Icons.calendar_month),
+                hintText: "22 February 2008",
+                suffiIcon: Icon(Icons.calendar_month),
+              ),
+              SizedBox(height: 7),
+              MyText(text: "Address", fontWeight: FontWeight.bold),
+              MyText(text: "Full Address", fontSize: 12, colors: Colors.grey),
+              SizedBox(height: 5),
+              MyTextfeild(
+                controller: address,
+                isDense: true,
+                hintText: "Rangpur Division",
               ),
             ],
           ),
+          SizedBox(height: 10),
+          Row(
+            spacing: 5,
+            children: [
+              SizedBox(height: 5),
+              Expanded(
+                child: MyTextfeild(
+                  controller: city,
+                  isDense: true,
+                  label: MyText(text: "City"),
+                  hintText: "Rangpur",
+                ),
+              ),
+              SizedBox(height: 5),
+              Expanded(
+                child: MyTextfeild(
+                  controller: postalCode,
+                  label: MyText(text: "Post Code"),
+                  isDense: true,
+                  hintText: "1230",
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 8),
+          MyText(text: "Country", fontSize: 12, colors: Colors.grey),
+          SizedBox(height: 5),
+          MyTextfeild(
+            controller: country,
+            isDense: true,
+            hintText: "Bangladesh",
+            suffiIcon: Icon(Icons.keyboard_arrow_down_outlined),
+          ),
+          SizedBox(height: 8),
+          MyText(text: "Account information", fontSize: 15, colors: Colors.black,fontWeight: FontWeight.bold,),
+          SizedBox(height: 5),
+          MyTextfeild(
+            controller: password,
+            isDense: true,
+            hintText: "Passworld",
+            suffiIcon: Icon(Icons.arrow_forward_ios_outlined),
+          ),
+          SizedBox(height: 10,),
+          MyButton(
+            onTab: (){
+
+            },
+            child: MyText(text: "Save Changes",colors: Colors.white,fontWeight: FontWeight.bold,fontSize: 16,letterSpacing: 2,),
+          )
         ],
       ),
     );
